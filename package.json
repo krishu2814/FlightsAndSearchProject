@@ -2,19 +2,30 @@
   "name": "flightsandsearch",
   "version": "1.0.0",
   "description": "Micro service for handling FLIGHT CRUD",
+  "homepage": "https://github.com/krishu2814/FlightsAndSearchProject#readme",
+  "bugs": {
+    "url": "https://github.com/krishu2814/FlightsAndSearchProject/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krishu2814/FlightsAndSearchProject.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "start": "npx nodemon src/index"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.20",
-    "sequelize": "^6.27.0",
-    "sequelize-cli": "^6.5.2"
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.5"
   }
 }
