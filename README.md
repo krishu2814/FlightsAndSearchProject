@@ -36,5 +36,12 @@ and then execute
   - A city has many airports but one airport belongs to a city
   - One airport can have many flights, but a flight belongs to one airport
 
-
+###
+index.js (server)
+  ↓
+routes/index.js 
+  ↓
+routes/v1/index.js 
+  ↓
+routes/v1/city.js
   
