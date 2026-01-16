@@ -47,3 +47,7 @@ class CityService {
 }
 
 module.exports = CityService;
+
+/**
+ * Responsibility: It acts as a middleman between the Controller (the outside world) and the Repository
+ */

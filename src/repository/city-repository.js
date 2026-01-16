@@ -55,3 +55,17 @@ class CityRepository {
 }
 
 module.exports = CityRepository;
+
+
+/*
+The Repository Layer (CityRepository) ->
+
+The logic here is Database Centric.
+
+Responsibility: Its only job is to talk to the database (via Sequelize).
+
+Logic: It deals with database models, SQL queries, and raw data persistence.
+
+Knowledge: It knows how to save a city to a table called Cities. It doesn't care why the city is being created or who is asking.
+
+*/
