@@ -1,11 +1,14 @@
 const { City } = require('../models/index');
 
+// contact to database
+// make notes of sequelize documentation -> findByPk,update,create,delete ....
 class CityRepository {
 
     async createCity({ name }) { 
         try {
             const city = await City.create({
-                name
+                name: name,
+                // name -> ES6
             });
             return city;
         } catch (error) {
@@ -17,6 +20,8 @@ class CityRepository {
     async deleteCity(cityId) {
         try {
             await City.destroy({
+
+                // custom objects
                 where: {
                     id: cityId
                 }
@@ -28,6 +33,7 @@ class CityRepository {
         }
     }
 
+    // after update we need to save it.
     async updateCity(cityId, data) { // {name: "Prayagraj"}
         try {
             const city = await City.update(data, {
