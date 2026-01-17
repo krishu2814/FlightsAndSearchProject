@@ -1,4 +1,5 @@
 const { City } = require('../models/index'); // MODELS
+const { Op } = require('sequelize'); // operators for query
 
 // contact to database
 // make notes of sequelize documentation -> findByPk,update,create,delete ....
@@ -73,8 +74,20 @@ class CityRepository {
             throw {error};
         }
     }
-    async getAllCities() {
+    // filter can be empty also...
+    // sensitive data only -> remove useless data earlier
+    async getAllCities(filter) {
         try {
+            if (filter.name) {
+                const cities = await City.findAll({
+                    where: {
+                        name: {
+                            [Op.startsWith]: filter.name // filter
+                        }
+                    }
+                });
+                return cities;
+            }
             const cities = await City.findAll();
             return cities;
         } catch (error) {
