@@ -13,8 +13,7 @@ const setupAndStartServer = async () => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
 
-    app.use('/api', ApiRoutes); // /api/v1 -> go to v1 folder in routes folder
-
+    app.use('/api', ApiRoutes); // -> /api/v1 -> go to v1 folder in routes folder
 
 
     // start the server

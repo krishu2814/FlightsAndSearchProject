@@ -64,14 +64,14 @@ const get = async (req, res) => {
         return res.status(201).json({
             data: getCity,
             success: true,
-            message: "Successfully get a city.",
+            message: "Successfully fetch a city.",
             err: {}
         })
     } catch (error) {
         res.status(500).json({
             data: {},
             success: false,
-            message: "Not able to get a city.",
+            message: "Not able to fetch a city.",
             err: error || error.message
         })
     }
@@ -99,10 +99,30 @@ const update = async (req, res) => {
     }
 };
  
+const getAll = async (req, res) => {
+    try {
+        const cities = await cityService.getAllCities();
+        return res.status(200).json({
+            data: cities,
+            success: true,
+            message: "Successfully fetched all cities.",
+            err: {}
+        })
+    } catch (error) {
+        res.status(500).json({
+            data: {},
+            success: false,
+            message: "Not able to get all cities.",
+            err: error || error.message
+        })
+    }
+};
+ 
 
 module.exports = {
     create,
     destroy,
     get,
-    update
+    update,
+    getAll
 };
