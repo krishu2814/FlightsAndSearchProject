@@ -8,13 +8,22 @@ module.exports = (sequelize, DataTypes) => {
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
+     * 1 - many || many - many
      */
     static associate(models) {
-      // define association here
+      // define association here -> refer sequelize association
+      this.hasMany(models.Airport, {
+        foreignKey: 'cityId',
+      }); // -> City has many Airport
+
     }
   }
   City.init({
-    name: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING, 
+      allowNull: false,
+      unique: true
+    },
   }, {
     sequelize,
     modelName: 'City',
