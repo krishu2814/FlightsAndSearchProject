@@ -68,4 +68,5 @@ and then execute
 ```
 - Database -> Cities -> The physical storage on your hard drive (managed by the Migration).
 - JavaScript -> City -> The class you use in Node.js to fetch data (managed by the Model file).
+- db.sequqlize.sync() -> to get all airports of a city we need to sync first.
 ```
