@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class City extends Model {
     /**
@@ -10,11 +8,16 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      * 1 - many || many - many
      */
+
+    // ✅Assocition is Important
     static associate(models) {
       // define association here -> refer sequelize association
+      // models has access to all the model
+      
+      // -> City has many Airport
       this.hasMany(models.Airport, {
         foreignKey: 'cityId',
-      }); // -> City has many Airport
+      });
 
     }
   }
@@ -25,8 +28,9 @@ module.exports = (sequelize, DataTypes) => {
       unique: true
     },
   }, {
-    sequelize,
+    sequelize, // Register this model with this Sequelize instance.
     modelName: 'City',
+    // tableName: 'Cities'
   });
   return City;
 };

@@ -17,6 +17,7 @@ const setupAndStartServer = async () => {
     app.use('/api', ApiRoutes); // -> /api/v1 -> go to v1 folder in routes folder
 
 
+
     // start the server
     app.listen(PORT, async () => {
         console.log(`Server started at ${PORT}`);

@@ -3,7 +3,8 @@ const { CityRepository } = require('../repository/index');
 class CityService {
     constructor() {
 
-        // ???? Object has methods💥
+        // 💥Object has methods✅
+        // CityRepository is a class
         this.cityRepository = new CityRepository();
     }
 
@@ -50,7 +51,7 @@ class CityService {
     async getAllCities(filter) {
         try {
             // user might send multiple filters
-            const cities = await this.cityRepository.getAllCities({name: filter.name}); 
+            const cities = await this.cityRepository.getAllCities({name: filter.name}); // filter
             return cities;
         } catch(error) {
             console.log("Something went wrong at service layer");
@@ -62,5 +63,5 @@ class CityService {
 module.exports = CityService;
 
 /**
- * Responsibility: It acts as a middleman between the Controller (the outside world) and the Repository
+ * Responsibility: It acts as a middle man between the Controller (the outside world) and the Repository
  */

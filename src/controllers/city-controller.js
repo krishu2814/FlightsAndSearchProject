@@ -1,4 +1,7 @@
 const { CityService } = require('../services/index') 
+/**
+ * Controllers will send response to the user
+ */
 
 /**
  * In JavaScript: 
@@ -7,12 +10,11 @@ const { CityService } = require('../services/index')
  * POST
  * data -> req.body
  * next -> undefined for controllers
- * use static keyword -> Method now belongs to the class✅ itself ...
+ * use static keyword before method -> Method now belongs to the class✅ itself ...
  */
 
-// We need to create an object to call any method
 // We cannot use class directly ..
-const cityService = new CityService();
+const cityService = new CityService(); // object
 
 
 // POST -> {"name":"patna"} in req.body
@@ -126,3 +128,15 @@ module.exports = {
     update,
     getAll
 };
+
+/**
+ * Using Class hi krna agle project main
+ */
+// class cityS {
+//     constructor() {
+//         this.cityS= new CityService()
+//     }
+//     async create() {
+        
+//     }
+// }

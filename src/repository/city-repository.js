@@ -2,7 +2,7 @@ const { City } = require('../models/index'); // MODELS
 const { Op } = require('sequelize'); // operators for query
 
 // contact to database
-// make notes of sequelize documentation -> findByPk,update,create,delete ....
+// sequelize documentation -> findByPk,update,create,delete ....
 
 class CityRepository {
 
@@ -36,7 +36,7 @@ class CityRepository {
     }
 
     // after update we need to save it.
-    async updateCity(cityId, data) { // {name: "Prayagraj"}
+    async updateCity(cityId, data) { // {name: "Prayagraj"} in body
         try {
             /**
              * Postgres
@@ -55,7 +55,7 @@ class CityRepository {
              */
             const city = await City.findByPk(cityId);
             // assign property
-            city.name = data.name;
+            city.name = data.name; // data -> req.body
             // save the updated data
             await city.save();
             return city;
