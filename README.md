@@ -45,9 +45,9 @@ and then execute
 ### Airport -> id, name, address, city_id, created_at, updated_at
     - Relationship -> City has many airports and Airport belongs to a city (one to many)
 
-
-### npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
-
+```
+`npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer`
+```
 
 # sequelize-cli
 ```
@@ -69,4 +69,11 @@ and then execute
 - Database -> Cities -> The physical storage on your hard drive (managed by the Migration).
 - JavaScript -> City -> The class you use in Node.js to fetch data (managed by the Model file).
 - db.sequqlize.sync() -> to get all airports of a city we need to sync first.
+```
+```
+- Flights:-
+- flightNumber,airplaneId,departureAirportId,arrivalAirportId,arrivalTime,departureTime,price,boardingGate,totalSeats
+`npx sequelize model:generate --name Flighs --attributes flightNumber:String,airplaneId:integer,departureAirportId:integer,arrivalAirpo
+rtId:integer,arrivalTime:Date,departureTime:Date,price:integer,boardingGate:String,totalSeats:integer`
+
 ```
