@@ -54,3 +54,16 @@ class AirportService {
 }
 
 module.exports = AirportService;
+
+/**
+ * super(airportRepository) injects the repository into the parent class, 
+ * so this.repository in CrudService refers to AirportRepository.
+ * 
+ * Execution flow ->
+
+ → airportService.create()
+    → CrudService.create()
+        → this.repository.create()
+            → airportRepository.create()
+                → Airport.create() (Sequelize model)
+ */
