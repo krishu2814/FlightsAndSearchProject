@@ -1,5 +1,6 @@
 const AirplaneRepository = require('./airplane-repository');
 const CrudRespository = require('./crud-repository');
+const UserRepository = require('./user-repository');
 
 // for multiple named exports in one require statement ...😎
 module.exports = {
@@ -7,5 +8,6 @@ module.exports = {
     AirportRepository: require('./airport-repository'),
     FlightRepository: require('./flight-repository'),
     AirplaneRepository,
-    CrudRespository
+    CrudRespository,
+    UserRepository
 }
