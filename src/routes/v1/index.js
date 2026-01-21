@@ -35,6 +35,7 @@ router.patch('/flight/:id', FlightController.update);
 router.get('/user/:id', UserController.get);
 router.post('/user/signup', UserController.create);
 router.delete('/user/:id', UserController.destroy);
+router.post('/user/signIn', UserController.signIn);
 
 module.exports = router;
 
