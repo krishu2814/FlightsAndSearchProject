@@ -4,6 +4,7 @@ const AirportController = require("../../controllers/airport-controller");
 const FlightController = require('../../controllers/flight-controller');
 const FlightMiddlewares = require('../../middlewares/index');
 const UserController = require('../../controllers/user-controller');
+const { AuthRequestValidators } = require('../../middlewares/index');
 
 const router = express.Router();
 const airportController = new AirportController();
@@ -33,9 +34,9 @@ router.patch('/flight/:id', FlightController.update);
 
 // User CRUD ->
 router.get('/user/:id', UserController.get);
-router.post('/user/signup', UserController.create);
+router.post('/user/signup', AuthRequestValidators, UserController.create);
 router.delete('/user/:id', UserController.destroy);
-router.post('/user/signIn', UserController.signIn);
+router.post('/user/signIn', AuthRequestValidators, UserController.signIn);
 
 module.exports = router;
 
