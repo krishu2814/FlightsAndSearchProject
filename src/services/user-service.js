@@ -8,6 +8,7 @@ class UserService {
     async create(data) {
         try {
             const user = await this.userRepository.create(data);
+            console.log(user.password);
             return user;
         } catch (error) {
             console.log("Something went wrong in the service layer");
