@@ -16,15 +16,25 @@ class UserService {
         }
     }
 
-    // async destroy(data) {
-    //     try {
-    //         const user = await this.userRepository.destroy(data);
-    //         return user;
-    //     } catch (error) {
-    //         console.log("Something went wrong in the service layer");
-    //         throw error;
-    //     }
-    // }
+    async destroy(data) {
+        try {
+            const user = await this.userRepository.destroy(data);
+            return user;
+        } catch (error) {
+            console.log("Something went wrong in the service layer");
+            throw error;
+        }
+    }
+
+    async getUserById(userId) {
+        try {
+            const user = await this.userRepository.getUserById(userId);
+            return user;
+        } catch (error) {
+            console.log("Something went wrong in the service layer");
+            throw error;
+        }
+    }
 }
 
 module.exports = UserService;

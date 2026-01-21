@@ -6,6 +6,7 @@ class UserController {
 
         // binding
         this.create = this.create.bind(this);
+        this.destroy = this.destroy.bind(this);
     }
 
     async create(req, res) {
@@ -21,9 +22,28 @@ class UserController {
                 err: {}
             });
         } catch (error) {
-            console.log(error);
             return res.status(500).json({
                 message: 'Not able to create user.',
+                data: {},
+                success: false,
+                err: error
+            });
+        }
+    }
+
+    async destroy(req, res) {
+        try {
+            const user = await this.userService.destroy(req.params.id);
+            res.status(200).json({
+                success: true,
+                message: 'Successfully deleted the user',
+                data: user,
+                err: {}
+            })
+        } catch (error) {
+            console.log(error);
+            return res.status(404).json({
+                message: 'Not able to delete user.',
                 data: {},
                 success: false,
                 err: error
