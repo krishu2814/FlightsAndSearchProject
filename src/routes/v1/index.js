@@ -32,6 +32,7 @@ router.get('/flight/:id', FlightController.get);
 router.patch('/flight/:id', FlightController.update);
 
 // User CRUD ->
+router.get('/user/:id', UserController.get);
 router.post('/user/signup', UserController.create);
 router.delete('/user/:id', UserController.destroy);
 
