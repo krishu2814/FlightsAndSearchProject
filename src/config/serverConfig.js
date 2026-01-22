@@ -6,5 +6,5 @@ dotenv.config();
 module.exports = {
     PORT: process.env.PORT,
     SALT: bcrypt.genSaltSync(9),
-    JWT_SECRET_KEY: 'krishukumarsingh'
+    JWT_SECRET_TOKEN: 'krishukumarsingh'
 }

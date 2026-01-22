@@ -8,36 +8,10 @@ class UserService {
         this.userRepository = new UserRepository();
     }
 
-    // sign in the user
-    async signIn(email , passwordByUser) {
-        try {
-            // find user by email
-            const user = await this.userRepository.findUserByEmail(email);
-            console.log(user);
-            if (!user) {
-                throw { error: "User not found." };
-            }
-
-            // compare incoming password
-            // user.password -> saved in database
-            const validUser = await this.checkPassword(passwordByUser, user.password);
-            if (!validUser) {
-                throw {error : "Incorrect password."}
-            }
-            //create token and send it to user
-            const token = this.createToken({ email: user.email, id: user.id });
-            console.log(token);
-            return token;
-        } catch (error) {
-            console.log("Something went wrong in the sign in process");
-            throw { error };
-        }
-
-    }
-
     async create(data) {
         try {
             const user = await this.userRepository.create(data);
+            console.log(user.password);
             return user;
         } catch (error) {
             console.log("Something went wrong in the service layer");
@@ -67,10 +41,10 @@ class UserService {
 
     createToken(user) {
         try {
-            const token = jwt.sign(user, JWT_SECRET_KEY, { expiresIn: 8000000 });
-            return token;         
+            const token = jwt.sign(user.id, JWT_SECRET_KEY, { expiresIn: '1d'});
+            return token;
         } catch (error) {
-            console.log("Something went wrong in token creation", error);
+            console.log("Something went wrong in token creation");
             throw error;
         }
     }
@@ -85,9 +59,9 @@ class UserService {
         }
     }
 
-    async checkPassword(plainPassword, userSavedPasswordDB) {
+    async checkPassword(plainPassword, userSavedPassword) {
         try {
-            return await bcrypt.compare(plainPassword, userSavedPasswordDB);
+            return bcrypt.compareSync(plainPassword, userSavedPassword);
         } catch (error) {
             console.log("Something went wrong in token validation", error);
             throw error;
